@@ -168,3 +168,22 @@ client.on("message", async message => {
   if (message.channel.name.includes('priv-chat') && message.channel.permissionsFor(message.author).has("MANAGE_MESSAGES") && (message.content.toLowerCase().startsWith('g!sustur-aç') || message.content.toLowerCase().startsWith('g!unmute') || message.content.toLowerCase().startsWith('g!susturaç')) && message.mentions.users.first() && message.channel.permissionsFor(message.mentions.users.first()).has("READ_MESSAGES")) return message.channel.overwritePermissions(message.mentions.users.first(), { SEND_MESSAGES: true }).then(x => message.react('✅'));
   if (message.channel.name.includes('priv-chat') && message.channel.permissionsFor(message.author).has("READ_MESSAGES") && (message.content.toLowerCase().startsWith('g!ayrıl') || message.content.toLowerCase().startsWith('g!çık'))) return message.channel.overwritePermissions(message.author, { READ_MESSAGES: null, READ_MESSAGE_HISTORY: null, SEND_MESSAGES: null }).then(x => message.react('✅'));
 });
+
+client.ayar = {
+  "SunucuID": "726815768129568819",
+  "SahipRolüID": "Sunucu sahibinin rolünün ID",
+  "TeyitYetkilisi": "Teyit yetkilisi rolünün ID",
+  "TeyitsizRolü": "Teyitsiz kişilerin rol ID",
+  "TeyitKanal": "Sunucuya katılan kişilerin teyit edileceği kanalın ID",
+  "ErkekÜye": "Erkek üyelere verilecek rolün ID",
+  "KızÜye": "Kız üyelere verilecek rolün ID",
+  "SohbetKanalID": "Sunucunuzun genel chat kanalının ID"
+}
+
+
+client.on("guildMemberAdd", async(member) => {
+  try {
+    await(member.addRole(client.ayar.TeyitsizRolü))
+    await client.channels.get(client.ayar.TeyitKanal).send(`Sunucuya hoş geldin ${member}, seninle **${member.guild.memberCount}** kişiyiz! \n&lt;@&amp;${client.ayar.TeyitYetkilisi}&gt; rolündeki yetkililer seninle ilgilenecektir.`)
+  } catch(err) { }
+})
