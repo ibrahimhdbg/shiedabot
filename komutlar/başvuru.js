@@ -134,7 +134,7 @@ if (kid3 === "iptal") return message.channel.send("✅ | **İşlem iptal edildi!
  )})})})})})}}
 exports.conf = {
   enabled: true, 
-  guildOnly: true, 
+  guildOnly: false, 
   aliases: [''], 
   permLevel: 0 
 };

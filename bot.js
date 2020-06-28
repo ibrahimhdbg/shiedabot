@@ -192,7 +192,7 @@ client.on("guildMemberAdd", member => {
   const kanal = "704426128403595425";
   moment.locale("tr");
   let kanal1 = client.channels.get(kanal);
- kanal1.send( "<a:wel:717689513656188989><a:come:717689525283061830> " + member + " Hoş Geldin! \n\n<a:morelmas:704601230822998076> Seninle Beraber **" + member.guild.memberCount + "** Kişiyiz! \n\n<a:loading:704574359569956875> Birazdan Yetkililer Gelip Kaydınızı Alacak <@&704432531033817148> \n\n<a:onay:717689573756633089> Hesabın Oluşturulma Tarihi: **" + moment(member.user.createdAt).format("DD MMMM YYYY, dddd (hh:mm)**")  , new Discord.Attachment("https://cdn.discordapp.com/attachments/716593073588535297/717698144753942558/gif_welcome2.gif"
+ kanal1.send( " ${member} Hoş Geldin! \n\n Seninle Beraber **" + member.guild.memberCount + "** Kişiyiz! \n\n<a:loading:704574359569956875> Birazdan Yetkililer Gelip Kaydınızı Alacak <@&704432531033817148> \n\n<a:onay:717689573756633089> Hesabın Oluşturulma Tarihi: **" + moment(member.user.createdAt).format("DD MMMM YYYY, dddd (hh:mm)**")  , new Discord.Attachment("https://cdn.discordapp.com/attachments/716593073588535297/717698144753942558/gif_welcome2.gif"
     )
   );
 });
