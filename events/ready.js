@@ -8,7 +8,7 @@ module.exports = client => {
   setInterval(function() {}, 8000);
   client.user.setPresence({
     game: {
-      name: `Discord Code Shâre`,
+      name: `Gamever BETA`,
       type: "WATCHING"
     },
     status: "online"

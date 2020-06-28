@@ -10,14 +10,14 @@ exports.run = async (client, message, args) => {
     if (!args[1]) return message.channel.send(new Discord.RichEmbed()
 .setAuthor(message.author.username, message.author.avatarURL)
 .setColor("RANDOM")
-.addField("**Ayarlama komutları**", `${p}sipariş ayarla kanal \`#kanaletiketi\` = **Log kanalını ayarlar.**\n${p}sipariş ayarla soru-1 \`sorulacak 1.soru\` = **Sorulacak 1. soruyu ayarlar.**\n${p}sipariş ayarla soru-2 \`sorulacak 2.soru\` = **Sorulacak 2. soruyu ayarlar.**\n${p}sipariş ayarla soru-3 \`sorulacak 3.soru\` = **Sorulacak 3. soruyu ayarlar.**\n${p}sipariş ayarla soru-4 \`sorulacak 4.soru\` = **Sorulacak 4. soruyu ayarlar.**`)
-.addField("**Sıfırlama komutları**", `${p}sipariş sıfırla <hepsi> = **Soruların/kanalların hepsini sıfırlar.**\n${p}sipariş sıfırla kanal = **Ayarlanan kanalı sıfırlar.**\n${p}sipariş sıfırla soru-1 = **Ayarlanan 1. soruyu sıfırlar.**\n${p}sipariş sıfırla soru-2 = **Ayarlanan 2. soruyu sıfırlar.**\n${p}sipariş sıfırla soru-3 = **Ayarlanan 3. soruyu sıfırlar.**\n${p}sipariş sıfırla kanal = **Ayarlanan 4. soruyu sıfırlar.**`)
-.addField("__**NOT 1 **__", "Ayarları sıfırlarken yazdığınız değerleri tekrar yazmaya gerek yoktur.\nÖrneğin **"+p+"sipariş sıfırla kanal** yazarken kanalı etiketlemeye gerek yoktur.")
-.addField("__**NOT 2 **__", `Eğer bütün herşey ayarlandıysa kullanıcı \`${p}sipariş yap\` yazdığında sorular sorulmaya başlanacaktır.`))
+.addField("**Ayarlama komutları**", `${p}başvuru ayarla kanal \`#kanaletiketi\` = **Log kanalını ayarlar.**\n${p}başvuru ayarla soru-1 \`sorulacak 1.soru\` = **Sorulacak 1. soruyu ayarlar.**\n${p}başvuru ayarla soru-2 \`sorulacak 2.soru\` = **Sorulacak 2. soruyu ayarlar.**\n${p}başvuru ayarla soru-3 \`sorulacak 3.soru\` = **Sorulacak 3. soruyu ayarlar.**\n${p}başvuru ayarla soru-4 \`sorulacak 4.soru\` = **Sorulacak 4. soruyu ayarlar.**`)
+.addField("**Sıfırlama komutları**", `${p}başvuru sıfırla <hepsi> = **Soruların/kanalların hepsini sıfırlar.**\n${p}başvuru sıfırla kanal = **Ayarlanan kanalı sıfırlar.**\n${p}başvuru sıfırla soru-1 = **Ayarlanan 1. soruyu sıfırlar.**\n${p}başvuru sıfırla soru-2 = **Ayarlanan 2. soruyu sıfırlar.**\n${p}başvuru sıfırla soru-3 = **Ayarlanan 3. soruyu sıfırlar.**\n${p}başvuru sıfırla kanal = **Ayarlanan 4. soruyu sıfırlar.**`)
+.addField("__**NOT 1 **__", "Ayarları sıfırlarken yazdığınız değerleri tekrar yazmaya gerek yoktur.\nÖrneğin **"+p+"başvuru sıfırla kanal** yazarken kanalı etiketlemeye gerek yoktur.")
+.addField("__**NOT 2 **__", `Eğer bütün herşey ayarlandıysa kullanıcı \`${p}başvuru yap\` yazdığında sorular sorulmaya başlanacaktır.`))
     if (args[1] === "kanal") {
      let ayarlıkanal = message.mentions.channels.first();
-    if (!ayarlıkanal) return message.channel.send("📛 | **Siparişlerin gönderileceği kanalı belirlemek için bir kanal etiketlenmeli!**").then(m => m.delete(10000))
-      message.channel.send(`✅ | **Sipariş kanalı başarıyla <#${ayarlıkanal.id}> olarak ayarlandı!**`).then(m => m.delete(10000))
+    if (!ayarlıkanal) return message.channel.send("📛 | **başvurulerin gönderileceği kanalı belirlemek için bir kanal etiketlenmeli!**").then(m => m.delete(10000))
+      message.channel.send(`✅ | **başvuru kanalı başarıyla <#${ayarlıkanal.id}> olarak ayarlandı!**`).then(m => m.delete(10000))
        await db.set(`sipariskanal_${message.guild.id}`, ayarlıkanal.id)}
     if (args[1] === "soru-1") {
     let soru1 = args.slice(2).join(" ");
@@ -43,10 +43,10 @@ exports.run = async (client, message, args) => {
     if (!args[1]) return message.channel.send(new Discord.RichEmbed()
 .setAuthor(message.author.username, message.author.avatarURL)
 .setColor("RANDOM")
-.addField("**Ayarlama komutları**", `${p}sipariş ayarla kanal \`#kanaletiketi\` = **Log kanalını ayarlar.**\n${p}sipariş ayarla soru-1 \`sorulacak 1.soru\` = **Sorulacak 1. soruyu ayarlar.**\n${p}sipariş ayarla soru-2 \`sorulacak 2.soru\` = **Sorulacak 2. soruyu ayarlar.**\n${p}sipariş ayarla soru-3 \`sorulacak 3.soru\` = **Sorulacak 3. soruyu ayarlar.**\n${p}sipariş ayarla soru-4 \`sorulacak 4.soru\` = **Sorulacak 4. soruyu ayarlar.**`)
-.addField("**Sıfırlama komutları**", `${p}sipariş sıfırla <hepsi> = **Soruların/kanalların hepsini sıfırlar.**\n${p}sipariş sıfırla kanal = **Ayarlanan kanalı sıfırlar.**\n${p}sipariş sıfırla soru-1 = **Ayarlanan 1. soruyu sıfırlar.**\n${p}sipariş sıfırla soru-2 = **Ayarlanan 2. soruyu sıfırlar.**\n${p}sipariş sıfırla soru-3 = **Ayarlanan 3. soruyu sıfırlar.**\n${p}sipariş sıfırla kanal = **Ayarlanan 4. soruyu sıfırlar.**`)
-.addField("__**NOT 1 **__", "Ayarları sıfırlarken yazdığınız değerleri tekrar yazmaya gerek yoktur.\nÖrneğin **"+p+"sipariş sıfırla kanal** yazarken kanalı etiketlemeye gerek yoktur.")
-.addField("__**NOT 2 **__", `Eğer bütün herşey ayarlandıysa kullanıcı \`${p}sipariş yap\` yazdığında sorular sorulmaya başlanacaktır.`))
+.addField("**Ayarlama komutları**", `${p}başvuru ayarla kanal \`#kanaletiketi\` = **Log kanalını ayarlar.**\n${p}başvuru ayarla soru-1 \`sorulacak 1.soru\` = **Sorulacak 1. soruyu ayarlar.**\n${p}başvuru ayarla soru-2 \`sorulacak 2.soru\` = **Sorulacak 2. soruyu ayarlar.**\n${p}başvuru ayarla soru-3 \`sorulacak 3.soru\` = **Sorulacak 3. soruyu ayarlar.**\n${p}başvuru ayarla soru-4 \`sorulacak 4.soru\` = **Sorulacak 4. soruyu ayarlar.**`)
+.addField("**Sıfırlama komutları**", `${p}başvuru sıfırla <hepsi> = **Soruların/kanalların hepsini sıfırlar.**\n${p}başvuru sıfırla kanal = **Ayarlanan kanalı sıfırlar.**\n${p}başvuru sıfırla soru-1 = **Ayarlanan 1. soruyu sıfırlar.**\n${p}başvuru sıfırla soru-2 = **Ayarlanan 2. soruyu sıfırlar.**\n${p}başvuru sıfırla soru-3 = **Ayarlanan 3. soruyu sıfırlar.**\n${p}başvuru sıfırla kanal = **Ayarlanan 4. soruyu sıfırlar.**`)
+.addField("__**NOT 1 **__", "Ayarları sıfırlarken yazdığınız değerleri tekrar yazmaya gerek yoktur.\nÖrneğin **"+p+"başvuru sıfırla kanal** yazarken kanalı etiketlemeye gerek yoktur.")
+.addField("__**NOT 2 **__", `Eğer bütün herşey ayarlandıysa kullanıcı \`${p}başvuru yap\` yazdığında sorular sorulmaya başlanacaktır.`))
     if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**Bu komut için `sunucuyu yönet` izni gerekli!**").then(m => m.delete(10000))
     if (args[1] === "hepsi"){
       await db.delete(`sipariskanal_${message.guild.id}`)
@@ -76,7 +76,7 @@ exports.run = async (client, message, args) => {
    let soru2asil = await db.fetch(`soru2siparis_${message.guild.id}`) 
    let soru3asil = await db.fetch(`soru3siparis_${message.guild.id}`) 
    let soru4asil = await db.fetch(`soru4siparis_${message.guild.id}`)
-   if (!kanall && !soru1asil && !soru2asil && !soru3asil && !soru4asil) return message.channel.send(`📛 | **Sipariş parametrelerinden herhangi biri ayarlanmamış. Hemen ayarlamak için \`${p}sipariş ayarla\` yaz!**`)
+   if (!kanall && !soru1asil && !soru2asil && !soru3asil && !soru4asil) return message.channel.send(`📛 | **başvuru parametrelerinden herhangi biri ayarlanmamış. Hemen ayarlamak için \`${p}başvuru ayarla\` yaz!**`)
   let filtre = mes => mes.author.id === message.author.id;
   let embed = new Discord.RichEmbed()
   .setTitle("Soruları cevaplamak için verilen süre: 30 Saniye!")
@@ -121,7 +121,7 @@ if (kid3 === "iptal") return message.channel.send("✅ | **İşlem iptal edildi!
     .addField(`**${soru2asil}**`, `${kid2}`)
     .addField(`**${soru3asil}**`, `${kid3}`)
     .addField(`**${soru4asil}**`, `${km3rtid4}`)
-    .setAuthor(`${message.author.tag} kullanıcısından bir sipariş!`, message.author.avatarURL)
+    .setAuthor(`${message.author.tag} kullanıcısından bir başvuru!`, message.author.avatarURL)
     .setThumbnail(message.author.avatarURL)
     .setColor("#ffff18")
       await abc.edit(embed4)
@@ -140,7 +140,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'sipariş', 
-  description: '(Gelişmiş) sipariş komutu. Herşeyi ayarlanabilir.',
-  usage: 'sipariş yap&ayarla&sıfırla' 
+  name: 'başvuru', 
+  description: '(Gelişmiş) başvuru komutu. Herşeyi ayarlanabilir.',
+  usage: 'başvuru yap&ayarla&sıfırla' 
 }; 
