@@ -4,13 +4,13 @@ exports.run = async (client, message, args) => {
   if (message.member.highestRole.position < message.guild.roles.get('704432531033817148').position) return message.reply('Bu komutu kullanabilmek için  <@!704432531033817148> rolü ve üstüne sahip olmalısın!');
 
   let member = message.mentions.members.first();
-  let isim = args.slice(1).join(" ");
-  let yaş = args.slice(3).join(" ");
-  var tag = "℣";
+  let isim = args.filter(x => isNaN(x)).slice(0, 2).join(' ')
+  let yaş = args.filter(x => !isNaN(x))[0];
+  var tag = ("|");
   if (!member) return message.channel.send("**Örnek:** !k <üye> <isim> <yaş>");
   if (!isim) return message.channel.send("**Örnek:** !k <üye> <isim> <yaş>");
 
-  member.setNickname(`${tag} ${isim} ${yaş} `);
+  member.setNickname(`${isim} ${tag}  ${yaş} `);
   member.removeRole("704432526566883328");
   member.addRole("704446549781905428");
   db.add(`yetkili.${message.author.id}.kiz`, 1);
@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
     )
     .setFooter(`${client.user.username}`, client.user.avatarURL)
     .setTimestamp();
-  message.channel.send(embed);
+client.channels.get("726829897120612443").send(embed)
   client.channels.get("704449463422419156").send(`${member} aramıza hoşgeldin! <a:wel:717689513656188989><a:come:717689525283061830> `)
 };
 
