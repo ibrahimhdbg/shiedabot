@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
-if (!message.member.roles.has('701796413532667946')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription(' <@&701796413532667946> Rolüne Sahip Olman Gerekiyor :loanding:').setColor("Black"));    if (!message.member.voiceChannel) { return message.channel.send("Ses kanalında olman lazım Dostum!"); }
+if (!message.member.roles.has('701796413532667946')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription(' <@&701796413532667946> Rolüne Sahip Olman Gerekiyor ').setColor("Black"));    if (!message.member.voiceChannel) { return message.channel.send("Ses kanalında olman lazım Dostum!"); }
   let kullanıcı = message.mentions.users.first()
-  if (!kullanıcı) return message.channel.send("Kullanıcıyı etiketleyip Tekrar Dene Dostum :onaysz");
+  if (!kullanıcı) return message.channel.send("Kullanıcıyı etiketleyip tekrar denemelisin!");
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
   if(!member.voiceChannel) return message.channel.send("Etiketlenen kullanıcı bir ses kanalında değil").then(m =>m.delete(5000))
