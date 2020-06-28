@@ -124,8 +124,8 @@ exports.run = async (client, message, args, params) => {
         )
         .setFooter(message.guild.name, message.guild.iconURL);
       m3rkt.send(editlenir);
-      let ee = message.guild.roles.get(cezalirol);
-      u.addRole(ee);
+      let ee = message.guild.roles.get(cezalirol)
+
     }
   }
 

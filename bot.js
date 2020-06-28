@@ -190,3 +190,9 @@ client.on("guildMemberAdd", async(member) => {
 
  
 
+//snipe
+client.on("messageDelete", async message => {
+  if (message.channel.type === "dm" || !message.guild || message.author.bot) return;
+  await db.set(`snipe.${message.guild.id}.${message.channel.id}`, { yazar: message.author.id, yazilmaTarihi: message.createdTimestamp, silinmeTarihi: Date.now(), dosya: message.attachments.first() ? true : false });
+  if (message.content) db.set(`snipe.${message.guild.id}.${message.channel.id}.icerik`, message.content);
+});
