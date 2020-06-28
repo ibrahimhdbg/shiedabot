@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 exports.run = async (client, message, args) => {
-  if (message.member.highestRole.position < message.guild.roles.get('704432531033817148').position) return message.reply('Bu komutu kullanabilmek için  <@!704432531033817148> rolü ve üstüne sahip olmalısın!');
+  if (message.member.highestRole.position < message.guild.roles.get('704432531033817148')) return message.reply('Bu komutu kullanabilmek için  <@!704432531033817148> rolü ve üstüne sahip olmalısın!');
 
   let member = message.mentions.members.first();
   let isim = args.filter(x => isNaN(x)).slice(0, 2).join(' ')
@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
     .setFooter(`${client.user.username}`, client.user.avatarURL)
     .setTimestamp();
 client.channels.get("726829897120612443").send(embed)
-  client.channels.get("704449463422419156").send(`${member} aramıza hoşgeldin! <a:wel:717689513656188989><a:come:717689525283061830> `)
+  client.channels.get("726816361309011979").send(`${member} aramıza hoşgeldin! <a:kedicik:726832299538382902>`)
 };
 
 exports.conf = {

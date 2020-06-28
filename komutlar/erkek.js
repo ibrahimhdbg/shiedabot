@@ -22,7 +22,7 @@ const embed = new Discord.RichEmbed()
      .setFooter(`${client.user.username}`, client.user.avatarURL) 
       .setTimestamp()
 client.channels.get("726829897120612443").send(embed)
-  client.channels.get("726816361309011979").send(`${member} aramıza hoşgeldin! <a:welcome:698569569119502377>`)
+  client.channels.get("726816361309011979").send(`${member} aramıza hoşgeldin! <a:kedicik:726832299538382902>`)
 };
 
 exports.conf = {

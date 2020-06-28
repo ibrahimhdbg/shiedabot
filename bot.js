@@ -172,9 +172,9 @@ client.on("message", async message => {
 client.ayar = {
   "SunucuID": "726815768129568819",
   "SahipRolüID": "Sunucu sahibinin rolünün ID",
-  "TeyitYetkilisi": "Teyit yetkilisi rolünün ID",
-  "TeyitsizRolü": "Teyitsiz kişilerin rol ID",
-  "TeyitKanal": "Sunucuya katılan kişilerin teyit edileceği kanalın ID",
+  "TeyitYetkilisi": "726841548859506718",
+  "TeyitsizRolü": "726823658856775751",
+  "TeyitKanal": "726816361309011979",
   "ErkekÜye": "Erkek üyelere verilecek rolün ID",
   "KızÜye": "Kız üyelere verilecek rolün ID",
   "SohbetKanalID": "Sunucunuzun genel chat kanalının ID"
@@ -184,7 +184,7 @@ client.ayar = {
 client.on("guildMemberAdd", async(member) => {
   try {
     await(member.addRole(client.ayar.TeyitsizRolü))
-    await client.channels.get(client.ayar.TeyitKanal).send(`Sunucuya hoş geldin ${member}, seninle **${member.guild.memberCount}** kişiyiz! \n&lt;@&amp;${client.ayar.TeyitYetkilisi}&gt; rolündeki yetkililer seninle ilgilenecektir.`)
+    await client.channels.get(client.ayar.TeyitKanal).send(`Sunucuya hoş geldin ${member}, seninle **${member.guild.memberCount}** kişiyiz! \<@&726823658856775751> rolündeki yetkililer seninle ilgilenecektir.`)
   } catch(err) { }
 })
 
